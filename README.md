@@ -125,3 +125,7 @@ As a user, I should be able to view charts visualizing event details so that I c
    - Given the user is viewing a chart within an event’s details,
    - When the user interacts with the chart (e.g., tapping on a chart segment),
    - Then the app should provide more detailed information related to that part of the chart.
+
+### Serverless Functions
+
+In the Meet app, we leverage serverless functions to enhance backend functionality. These functions empower us to filter events by city, manage event details, and adjust the number of displayed events seamlessly. They also ensure that users can access essential data offline and provide dynamic content for home screen shortcuts. Additionally, serverless functions facilitate the creation of interactive charts to better visualize event information.
