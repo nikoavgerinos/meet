@@ -41,16 +41,16 @@ describe('<CitySearch /> component', () => {
         await user.type(cityTextBox, "Berlin");
 
         // filter allLocations to locations matching "Berlin"
-        const suggestions = allLocations ? allLocations.filter((location) => {
-            return location.toUpperCase().indexOf(cityTextBox.value.toUpperCase()) > -1;
-        }) : [];
+        const suggestions = allLocations?.filter((location) =>
+            location.toUpperCase().includes(cityTextBox.value.toUpperCase()),
+        );
 
         // get all <li> elements inside the suggestion list
         const suggestionListItems = CitySearchComponent.queryAllByRole('listitem');
         expect(suggestionListItems).toHaveLength(suggestions.length + 1);
-        for (let i = 0; i < suggestions.length; i += 1) {
-            expect(suggestionListItems[i].textContent).toBe(suggestions[i]);
-        }
+        suggestions.forEach((suggestion, index) =>
+            expect(suggestionListItems[index].textContent).toBe(suggestion),
+        );
     });
     test('renders the suggestion text in the textbox upon clicking on the suggestion', async () => {
         const user = userEvent.setup();
