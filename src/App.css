@@ -1,38 +1,138 @@
+@import url(https://fonts.googleapis.com/css?family=Roboto:500);
 .App {
   text-align: center;
+  padding: 2% 5%;
+  background-color: rgb(229, 221, 210);
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.App * {
+  box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+ul {
+  padding: 0;
+  list-style: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+p {
+  margin: 5px 0;
+}
+
+input[type="text"],
+input[type="number"] {
+  padding: 8px 6px 8px 10px;
+  border-radius: 4px;
+  outline: none;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  line-height: 20px;
+  align-self: center;
+  height: 38px;
+  margin-bottom: 20px;
+  text-align: center;
+  background-color: #f5f5f5; /* Add a background color */
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1); /* Add a subtle shadow */
+}
+
+input[type="text"]:focus,
+input[type="number"]:focus {
+  background-color: #ffffff; /* Change background color on focus */
+}
+
+.city {
+  width: 250px;
+}
+
+#city-search {
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin: auto;
+  position: relative;
+}
+
+.suggestions {
+  width: 250px;
+  position: absolute;
+  top: 45px;
+  z-index: 2;
+  align-self: center;
+  margin: 0;
+  font-size: 14px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a 3D-like shadow */
+  background-color: #fff; /* Add a background color */
+  border-radius: 4px;
+  transform: scaleY(0); /* Initially hide suggestions */
+  transform-origin: top;
+  transition: transform 0.2s ease-in-out; /* Add smooth transition */
+  overflow: hidden; /* Hide overflowing suggestions */
+}
+
+#city-search:focus-within .suggestions {
+  transform: scaleY(1); /* Show suggestions on input focus */
+}
+
+.suggestions > li {
+  text-align: left;
+  padding: 8px 6px 8px 10px;
+  background-color: #eee;
+  cursor: pointer;
+  transition: background-color 0.3s ease; /* Smooth background color transition */
+  color: black;
+}
+
+.suggestions > li:last-child {
+  border-bottom-left-radius: 4px;
+  border-bottom-right-radius: 4px;
+}
+
+.suggestions > li:hover {
+  background-color: #bcdcdb;
+}
+
+.event {
+  padding: 10px 10px 35px;
+  margin-bottom: 20px;
+  text-align: left;
+  border: 1px solid #ccc;
+  border-radius: 4px;
+  position: relative;
+  background-color: #ffffff; /* Add a background color */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2); /* Add a 3D-like shadow */
+  overflow: hidden;
+  transition: max-height 0.3s ease-in-out; /* Add a transition for max-height property */
+  border-radius: 15px;
+  color: black;
+  text-align: center;
+  background-color: rgb(245, 239, 231);
+}
+
+.details-btn {
+  position: absolute;
+  right: 20px;
+  bottom: 15px;
+  padding: 5px 8px;
+  border-radius: 4px;
+  outline: none;
+  cursor: pointer;
+  text-align: center;
+  display: flex;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  align-items: center; /* Add a modern button color */
+
+  transition: background-color 0.3s ease; /* Smooth background color transition */
 }
 
-.App-link {
-  color: #61dafb;
+.details-btn::after {
+  content: url(../src/images/chevron-top-bottom.svg);
+  margin-left: 5px;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.details-btn:hover {
+  background-color: #bcdcdb;
+}
+
+p.details {
+  padding-top: 10px;
+  padding-bottom: 40px;
 }
