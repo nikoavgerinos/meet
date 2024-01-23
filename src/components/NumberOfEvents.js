@@ -19,6 +19,7 @@ const NumberOfEvents = ({ setNumberOfEvents, setErrorAlert }) => {
     }
     return (
         <div id="numberOfEvents">
+            Number of Events:
             <input
                 type="text"
                 defaultValue='32'
