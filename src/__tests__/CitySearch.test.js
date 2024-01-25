@@ -67,10 +67,14 @@ describe('<CitySearch /> component', () => {
 
         // the suggestion's textContent look like this: "Berlin, Germany"
         const BerlinGermanySuggestion = CitySearchComponent.queryAllByRole('listitem')[0];
+        expect(BerlinGermanySuggestion).not.toBeEmptyDOMElement();
+        expect(BerlinGermanySuggestion.textContent).toContain("Berlin");
+
+
 
         await user.click(BerlinGermanySuggestion);
 
-        expect(cityTextBox).toHaveValue(BerlinGermanySuggestion.textContent);
+        expect(cityTextBox.value).toMatch("Berlin, Germany");
     });
 
 
