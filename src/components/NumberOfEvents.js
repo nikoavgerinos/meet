@@ -1,12 +1,20 @@
-import { useState } from "react";
 
-const NumberOfEvents = ({ setNumberOfEvents }) => {
-    const [eventNumber, setEventNumber] = useState('32');
 
-    const handleInputChange = (event) => {
+const NumberOfEvents = ({ setCurrentNOE, setErrorAlert }) => {
+
+    const handleInputChanged = (event) => {
         const value = event.target.value;
-        setEventNumber(value);
-        setNumberOfEvents(value);
+        setCurrentNOE(value);
+
+        let infoText;
+        if (isNaN(value) || value <= 0) {
+            infoText = 'Please enter a number greater than 0.';
+            setErrorAlert(infoText);
+        } else {
+            infoText = '';
+            setErrorAlert(infoText);
+            setCurrentNOE(value);
+        }
     }
 
     return (
@@ -15,8 +23,8 @@ const NumberOfEvents = ({ setNumberOfEvents }) => {
             <input
                 type="text"
                 id="eventNumberInput"
-                value={eventNumber}
-                onChange={handleInputChange}
+                defaultValue="32"
+                onChange={handleInputChanged}
                 style={{
                     width: "40px", /* Set the width to make it smaller */
                     textAlign: "center", /* Center the text horizontally */

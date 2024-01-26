@@ -130,3 +130,11 @@ p.details {
   padding-top: 10px;
   padding-bottom: 40px;
 }
+
+.alerts-container {
+  position: fixed;
+  top: 25px;
+  left: 100px;
+  width: 250px;
+  z-index: 1000;
+}
