@@ -46,8 +46,12 @@ const App = () => {
         {WarningAlert.length ? <WarningAlert text={warningAlert} /> : null}
 
       </div>
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} setErrorAlert={setErrorAlert} setWarningAlert={setWarningAlert} />
-      <NumberOfEvents setCurrentNOE={setCurrentNOE}
+      <CitySearch
+        allLocations={allLocations}
+        setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert}
+        setErrorAlert={setErrorAlert} />
+      <NumberOfEvents
+        setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert} />
       <EventList events={events} />
     </div>
