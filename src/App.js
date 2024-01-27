@@ -6,6 +6,7 @@ import NumberOfEvents from './components/NumberOfEvents';
 import { extractLocations, getEvents } from './api';
 import { InfoAlert } from './components/Alert';
 import { ErrorAlert } from './components/Alert';
+import { WarningAlert } from './components/Alert';
 
 
 const App = () => {
@@ -16,11 +17,17 @@ const App = () => {
   const [currentCity, setCurrentCity] = useState('See all cities');
   const [infoAlert, setInfoAlert] = useState("");
   const [errorAlert, setErrorAlert] = useState("");
+  const [warningAlert, setWarningAlert] = useState("");
 
 
 
   useEffect(() => {
 
+    if (navigator.onLine) {
+      setWarningAlert("");
+    } else {
+      setWarningAlert("You are in Offline Mode. Some features may not be available.");
+    }
     fetchData();
   }, [currentCity, currentNOE]);
 
@@ -36,9 +43,10 @@ const App = () => {
       <div className="alerts-container">
         {infoAlert.length ? <InfoAlert text={infoAlert} /> : null}
         {errorAlert.length ? <ErrorAlert text={errorAlert} /> : null}
+        {WarningAlert.length ? <WarningAlert text={warningAlert} /> : null}
 
       </div>
-      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} setErrorAlert={setErrorAlert} />
+      <CitySearch allLocations={allLocations} setCurrentCity={setCurrentCity} setInfoAlert={setInfoAlert} setErrorAlert={setErrorAlert} setWarningAlert={setWarningAlert} />
       <NumberOfEvents setCurrentNOE={setCurrentNOE}
         setErrorAlert={setErrorAlert} />
       <EventList events={events} />
