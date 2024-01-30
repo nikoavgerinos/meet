@@ -16,6 +16,7 @@ ul {
 
 p {
   margin: 5px 0;
+  padding-bottom: 20px;
 }
 
 input[type="text"],
@@ -133,8 +134,8 @@ p.details {
 
 .alerts-container {
   position: fixed;
-  top: 25px;
-  left: 100px;
+  top: 0px;
+  left: 20px;
   width: 250px;
   z-index: 1000;
 }
