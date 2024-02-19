@@ -1,131 +1,54 @@
-## 🌟 Key Features and User Stories
+<p align="center">
+  <img src="img/meetapp.png" width="800" alt="Image">
+</p>
 
-### 🏙️ Key Feature 1: Filter Events by City
+# 📅 Meet App
 
-**User Story**
-As a user, I should be able to filter events by city so that I can find events that are relevant to my location.
+Welcome to the Meet App project! This serverless progressive web application (PWA) is built with React using a test-driven development (TDD) technique. The app utilizes the Google Calendar API to fetch upcoming events based on user preferences.
 
-**Scenarios**
+## 📝 Project Description
 
-1. **Scenario 1**: When user hasn’t searched for a specific city, show upcoming events from all cities.
+Meet App aims to provide users with a seamless experience for discovering and managing upcoming events in various cities. Leveraging serverless architecture and PWAs, the app offers instant loading, offline support, and cross-platform compatibility. With a focus on TDD, the codebase is thoroughly tested to ensure high-quality and reliable functionality.
 
-   - Given user hasn’t searched for any city,
-   - When the user opens the app,
-   - Then the user should see a list of upcoming events.
+## ✨ Features
 
-2. **Scenario 2**: User should see a list of suggestions when they search for a city.
+- Filter events by city.
+- Show/hide event details.
+- Specify the number of events to display.
+- Offline support with service worker.
+- Add app shortcut to the home screen.
+- Data visualization with charts for event details.
 
-   - Given the main page is open,
-   - When user starts typing in the city textbox,
-   - Then the user should receive a list of cities (suggestions) that match what they’ve typed.
+## 🛠️ Technical Requirements
 
-3. **Scenario 3**: User can select a city from the suggested list.
-   - Given user was typing “Berlin” in the city textbox AND the list of suggested cities is showing,
-   - When the user selects a city (e.g., “Berlin, Germany”) from the list,
-   - Then their city should be changed to that city (i.e., “Berlin, Germany”) AND the user should receive a list of upcoming events in that city.
+- React application developed with TDD technique.
+- Integration with Google Calendar API and OAuth2 authentication.
+- Serverless functions (preferably AWS Lambda) for the authorization server.
+- Hosted on GitHub Pages.
+- Responsive design for all screen sizes.
+- Pass Lighthouse's PWA checklist.
+- Offline support with service worker.
+- Ability to install the app on desktop and add to home screen on mobile.
+- Test coverage >= 90% with unit, integration, and end-to-end tests.
+- Monitoring with an online performance monitoring tool.
 
-### 👀 Key Feature 2: Show/Hide Event Details
+## 🚀 Getting Started
 
-**User Story**
-As a user, I should be able to show or hide details of an event so that I can either get more information about an event or keep the list view simple.
+To run this project locally, follow these steps:
 
-**Scenarios**
+1. **Clone this repository:** Clone this repository to your local machine.
+2. **Install dependencies:** Navigate to the project folder and run `npm install`.
+3. **Start the development server:** Run `npm start` to start the development server.
+4. **View the app:** Open your browser and navigate to http://localhost:3000/ to view the app.
 
-1. **Scenario 1**: Default view shows events without detailed information.
+## 📚 Documentation
 
-   - Given the user is viewing the list of events,
-   - When the list is initially loaded,
-   - Then the events are displayed without detailed information.
+The documentation for this project includes user stories, test scenarios, and detailed technical documentation. Test coverage reports and performance monitoring results are also provided.
 
-2. **Scenario 2**: User can expand an event to see more details.
+## 🤝 Contributing
 
-   - Given the user is viewing the list of events,
-   - When the user selects an event,
-   - Then the app should display detailed information about that event.
+Contributions are welcome! If you have any suggestions or improvements, feel free to fork this repository and submit a pull request.
 
-3. **Scenario 3**: User can hide an event’s details.
-   - Given the user is viewing detailed information of an event,
-   - When the user selects to hide details,
-   - Then the app should collapse the event details back into the list view.
+## 📄 License
 
-### 🔢 Key Feature 3: Specify Number of Events
-
-**User Story**
-As a user, I should be able to specify the number of events displayed so that I can control the amount of information I view at a time.
-
-**Scenarios**
-
-1. **Scenario 1**: User views default number of events on initial load.
-
-   - Given the app is opened for the first time,
-   - When the events list is loaded,
-   - Then a default number of events are displayed.
-
-2. **Scenario 2**: User changes the number of events to display.
-   - Given the user is viewing the list of events,
-   - When the user selects a new number of events to display,
-   - Then the app should update the list to show the specified number of events.
-
-### 📴 Key Feature 4: Use the App When Offline
-
-**User Story**
-As a user, I should be able to use the app when offline so that I can access event information without an internet connection.
-
-**Scenarios**
-
-1. **Scenario 1**: App displays previously loaded events when offline.
-
-   - Given the user has previously used the app with an internet connection,
-   - When the user accesses the app without an internet connection,
-   - Then the app should show the most recently loaded events.
-
-2. **Scenario 2**: User receives notification about offline status.
-
-   - Given the user is using the app,
-   - When the device loses internet connectivity,
-   - Then the app should notify the user that they are in offline mode.
-
-3. **Scenario 3**: User tries to access new data when offline.
-   - Given the user is in offline mode,
-   - When the user attempts to access information not stored on the device,
-   - Then the app should display a message indicating that the action cannot be completed while offline.
-
-### 🏠 Key Feature 5: Add an App Shortcut to the Home Screen
-
-**User Story**
-As a user, I should be able to add a shortcut to the app on my home screen so that I can quickly access the app.
-
-**Scenarios**
-
-1. **Scenario 1**: User adds the app shortcut to the home screen.
-
-   - Given the user is using the app,
-   - When the user selects the option to add the app to the home screen,
-   - Then a shortcut to the app should be created on the user's device home screen.
-
-2. **Scenario 2**: User accesses the app through the shortcut.
-   - Given the user has a shortcut to the app on their home screen,
-   - When the user selects the app shortcut,
-   - Then the app should open.
-
-### 📊 Key Feature 6: Display Charts Visualizing Event Details
-
-**User Story**
-As a user, I should be able to view charts visualizing event details so that I can better understand the data related to events.
-
-**Scenarios**
-
-1. **Scenario 1**: Charts are displayed within event details.
-
-   - Given the user is viewing an event’s details,
-   - When the event has data suitable for chart visualization,
-   - Then the app should display a chart visualizing this data.
-
-2. **Scenario 2**: User interacts with the chart for more details.
-   - Given the user is viewing a chart within an event’s details,
-   - When the user interacts with the chart (e.g., tapping on a chart segment),
-   - Then the app should provide more detailed information related to that part of the chart.
-
-### Serverless Functions
-
-In the Meet app, we leverage serverless functions to enhance backend functionality. These functions empower us to filter events by city, manage event details, and adjust the number of displayed events seamlessly. They also ensure that users can access essential data offline and provide dynamic content for home screen shortcuts. Additionally, serverless functions facilitate the creation of interactive charts to better visualize event information.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
